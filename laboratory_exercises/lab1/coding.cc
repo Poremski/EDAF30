@@ -2,9 +2,9 @@
 
 unsigned char encode(unsigned char c)
 {
-    return c;
+    return ++c;
 }
 unsigned char decode(unsigned char c)
 {
-    return c;
+    return --c;
 }

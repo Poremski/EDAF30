@@ -11,7 +11,7 @@ public:
 
     /* Get the size of the current contents */
     size_type get_size() const;
-
+    
 	/*
 	 * Text[pos] contains a right parentheses. Returns the position of
 	 * the corresponding left parentheses, or string::npos if there
