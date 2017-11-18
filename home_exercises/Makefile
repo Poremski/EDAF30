@@ -9,14 +9,16 @@ CXXFLAGS += -std=c++11
 CXXFLAGS += -g
 CXXFLAGS += $(DEPFLAGS)
 
-PROGS = hello
+PROGS = hello luhn
 
 all: $(PROGS)
 
-test: hello
+test: hello luhn
 	./hello
+	./luhn
 
 hello: hello.o
+luhn: luhn.o
 
 .PHONY: all test clean distclean
 
