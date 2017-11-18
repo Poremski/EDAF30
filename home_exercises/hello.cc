@@ -38,7 +38,5 @@ int main()
   std::cout << hc.getMessage() << std::endl;
   hc.setName("Javier");
   hc.printMessage();
-
-
   return 0;
 }
