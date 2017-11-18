@@ -14,7 +14,9 @@ class LuhnClass {
       return calc();
     }
     int getNextDigit() {
-        return 10 - calc(true);
+        int c = 10 - calc(true);
+        if (c > 9) return 0;
+        else return c;
     }
   private:
       std::string _sequence;
@@ -24,15 +26,11 @@ class LuhnClass {
           int parity = nDigits % 2;
           for (int i = 0; i < nDigits; ++i) {
               int digit = _sequence[i] - '0';
-              bool multi;
-              if (reverse)
-                  multi = (i % 2 != parity);
-              else
-                  multi = (i % 2 == parity);
+              bool multi = (i % 2 == parity);
+              if (reverse) multi = (i % 2 != parity);
               if (multi) {
                   digit = digit * 2;
-                  if (digit > 9)
-                      digit -= 9;
+                  if (digit > 9) digit -= 9;
               }
               sum += digit;
           }
@@ -46,7 +44,6 @@ int main() {
   std::getline(std::cin, sequence);
 
   LuhnClass lc(sequence);
-
 
   std::cout << "Luhn checksum mod 10: " << lc.getChecksum() << std::endl;
   std::cout << "Next check digit: " << lc.getNextDigit() << std::endl;
