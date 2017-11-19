@@ -1,6 +1,8 @@
 #ifndef LUHN_H
 #define LUHN_H
 
+#include <string>
+
 class Luhn {
     public:
         Luhn(std::string sequence);
