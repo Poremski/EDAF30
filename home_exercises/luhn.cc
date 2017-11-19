@@ -28,7 +28,7 @@ int Luhn::calc(bool reverse)
     int nDigits = Luhn::_sequence.length();
     int parity = nDigits % 2;
     for (int i = 0; i < nDigits; ++i) {
-        int digit = _sequence[i] - '0';
+        int digit = Luhn::_sequence[i] - '0';
         bool multi = (i % 2 == parity);
         if (reverse) multi = (i % 2 != parity);
         if (multi) {
