@@ -1,27 +1,35 @@
 #include <iostream>
 #include <string>
 
-class HelloClass {
+class HelloClass
+{
   public:
-    HelloClass() {
+    HelloClass()
+    {
       name = "World";
     }
-    void setHello(std::string x) {
+    void setHello(std::string x)
+    {
       hello = x;
     }
-    void setName(std::string x) {
+    void setName(std::string x)
+    {
       name = x;
     }
-    std::string getHello() {
+    std::string getHello()
+    {
       return hello;
     }
-    std::string getName() {
+    std::string getName()
+    {
       return name;
     };
-    std::string getMessage() {
+    std::string getMessage()
+    {
       return hello + " " + name + "!";
     }
-    void printMessage() {
+    void printMessage()
+    {
       std::cout << getMessage() << std::endl;
     }
   private:
