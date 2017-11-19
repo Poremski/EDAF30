@@ -3,7 +3,8 @@
 
 #include <string>
 
-class Luhn {
+class Luhn
+{
     public:
         Luhn(std::string sequence);
         void setSequence(std::string sequence);
