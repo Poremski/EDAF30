@@ -27,7 +27,7 @@ int Luhn::calc(bool reverse)
     int sum = 0;
     int nDigits = Luhn::_sequence.length();
     int parity = nDigits % 2;
-    for (int i = 0; i < nDigits; ++i) {
+    for (int i = 0; i < nDigits; i++) {
         int digit = Luhn::_sequence[i] - '0';
         bool multi = (i % 2 == parity);
         if (reverse) multi = (i % 2 != parity);
@@ -40,14 +40,18 @@ int Luhn::calc(bool reverse)
     return sum % 10;
 }
 
-int main() {
-  std::string sequence;
-  std::cout << "Digit sequence: ";
-  std::getline(std::cin, sequence);
+int main(int argc, const char * argv[]) {
+    std::string sequence;
+    if (argc == 2) {
+        sequence = argv[1];
+    } else {
+        std::cout << "Digit sequence: ";
+        std::getline(std::cin, sequence);
+    }
 
-  Luhn::Luhn lc(sequence);
+    Luhn::Luhn lc(sequence);
 
-  std::cout << "Luhn checksum mod 10: " << lc.getChecksum() << std::endl;
-  std::cout << "Next check digit: " << lc.getNextDigit() << std::endl;
-  return 0;
+    std::cout << "Luhn checksum mod 10: " << lc.getChecksum() << std::endl;
+    std::cout << "Next check digit: " << lc.getNextDigit() << std::endl;
+    return 0;
 }
