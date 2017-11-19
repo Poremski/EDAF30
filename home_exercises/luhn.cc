@@ -19,32 +19,47 @@ int Luhn::getChecksum()
 int Luhn::getNextDigit()
 {
     int c = 10 - calc(true);
-    if (c > 9) return 0;
-    else return c;
+    if (c > 9)
+    {
+        return 0;
+    }
+    else
+    {
+        return c;
+    }
 }
 int Luhn::calc(bool reverse)
 {
     int sum = 0;
     int nDigits = Luhn::_sequence.length();
     int parity = nDigits % 2;
-    for (int i = 0; i < nDigits; i++) {
+    for (int i = 0; i < nDigits; i++)
+    {
         int digit = Luhn::_sequence[i] - '0';
         bool multi = (i % 2 == parity);
         if (reverse) multi = (i % 2 != parity);
-        if (multi) {
+        if (multi)
+        {
             digit = digit * 2;
-            if (digit > 9) digit -= 9;
+            if (digit > 9)
+            {
+                digit -= 9;
+            }
         }
         sum += digit;
     }
     return sum % 10;
 }
 
-int main(int argc, const char * argv[]) {
+int main(int argc, const char * argv[])
+{
     std::string sequence;
-    if (argc == 2) {
+    if (argc == 2)
+    {
         sequence = argv[1];
-    } else {
+    }
+    else
+    {
         std::cout << "Digit sequence: ";
         std::getline(std::cin, sequence);
     }
